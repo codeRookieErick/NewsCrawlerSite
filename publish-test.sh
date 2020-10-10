@@ -1,1 +1,0 @@
-scp -r * root@test.moradev.dev:/var/www/php/newsCore

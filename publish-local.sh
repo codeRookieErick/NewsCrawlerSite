@@ -1,1 +1,0 @@
-cp -r * /var/www/php/newsCore
