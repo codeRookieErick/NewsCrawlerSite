@@ -15,3 +15,11 @@ let allCategories = (callback) => {
     success: callback,
   });
 };
+
+let getNews = (id, callback) => {
+  callback = callback || ((data) => console.log(data));
+  $.ajax({
+    url: `${apiHost}/news/${id}`,
+    success: callback,
+  });
+};

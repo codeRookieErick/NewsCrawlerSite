@@ -32,8 +32,10 @@
         $("#fast-news").fadeOut(()=>{
             let elapsed = `[consultado hace ${getTimeElapsed(data["epoch_time"])}]`;
             let alertInfo = `${data["source"]}: ${data["title"]} ${elapsed}`;
+            let id = data["id"] || "";
             $("#fast-news-title").text(alertInfo);
-            $("#fast-news-title").attr("href", data["baseUrl"] + (data["url"] || ""));
+            $("#fast-news-title").attr("href", `read.php?id=${id}`);
+            $("#fast-news-title").attr("target", `_blank`);
             $("#fast-news").fadeIn();
         });
 
