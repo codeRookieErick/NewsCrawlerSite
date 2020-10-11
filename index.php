@@ -8,6 +8,7 @@
 </head>
 <body>
     <?PHP require("./res/parts/header.php");?>
+    <?PHP require("./res/parts/search.php");?>
     <?PHP require("./res/parts/fastNews.php");?>
 </body>
 </html>

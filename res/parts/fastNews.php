@@ -45,7 +45,7 @@
         let index = 0;
         let i = 0;
         let swapFastNews = () =>{
-            if(++index > 10){
+            if(++index > 100){
                 setTimeout(resetNews, 1000);
                 clearInterval(i);
             }else{

@@ -1,3 +1,6 @@
+<?PHP
+    session_start();
+?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="javascript/jquery-3.4.1.js"></script>

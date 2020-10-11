@@ -23,3 +23,10 @@ let getNews = (id, callback) => {
     success: callback,
   });
 };
+
+let getNewsByToken = (token, callback) => {
+  callback = callback || ((data) => console.log(data));$.ajax({
+    url: `${apiHost}/news/token/${token}`,
+    success: callback,
+  });
+}
