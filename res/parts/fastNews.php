@@ -3,23 +3,23 @@
 ?>
 <div class="container card">
     <div class="row">
-            <div class="col-2">
+            <div class="col-12">
                 <a 
-                    class="btn btn-danger w-100 h-100"
+                    class="btn btn-success w-100 h-100"
                     href="#" 
                     id="fastNewsSource<?=$id?>">
                     Fuente
                 </a>
             </div>
-            <div class="col-8 text-center" id="fastNews<?=$id?>">
+            <div class="col-12 text-center" id="fastNews<?=$id?>">
                 <h5>
                     <a id="fastNewsTitle<?=$id?>" href="#">Noticias:</a>
                 </h5>
             </div>
             
-            <div class="col-2">
+            <div class="col-12">
                 <label
-                    class="btn btn-info w-100 h-100"
+                    class="btn btn-success w-100 h-100"
                     href="#" 
                     id="fastNewsElapsed<?=$id?>">
                     Fuente
@@ -53,7 +53,7 @@
         allNews(6, setFastNews);
     };
     let setCurrentNews = (data) => {
-        $("#fastNews<?=$id?>").fadeOut(()=>{
+        $("#fastNews<?=$id?>").slideUp(()=>{
             let elapsed = getTimeElapsed(data["epoch_time"]);
             let alertInfo = `${data["title"]} ${elapsed}`;
             let id = data["id"] || "";
@@ -61,7 +61,7 @@
             $("#fastNewsTitle<?=$id?>").text(data["title"]);
             $("#fastNewsTitle<?=$id?>").attr("href", `read.php?id=${id}`);
             $("#fastNewsTitle<?=$id?>").attr("target", `_blank`);
-            $("#fastNews<?=$id?>").fadeIn();
+            $("#fastNews<?=$id?>").slideDown();
         });
 
         $("#fastNewsSource<?=$id?>").text(data["source"]);

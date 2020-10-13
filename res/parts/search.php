@@ -3,7 +3,7 @@
 ?>
 <div class="card container p-3" id="search<?=$id?>">
     <div class="row">
-        <div class="offset-6 col-4">
+        <div class="col-12 col-md-10">
             <input 
                 class="w-100"
                 type="text" 
@@ -11,8 +11,9 @@
                 name="searchText<?=$id?>"
             />
         </div>
-        <div class="col-2">
+        <div class="col-12 col-md-2">
             <button
+                class="btn btn-info w-100"
                 id="searchButton<?=$id?>" 
             >
                 Buscar
@@ -39,7 +40,7 @@
                     let resultSource = result["source"] || "";
                     let resultBaseUrl = result["baseUrl"] || "";
                     $("#searchResults<?=$id?>").append($(`
-                        <div> 
+                        <div class="p-1"> 
                             <a class="text-danger" href="${resultBaseUrl}">
                                 <strong> ${resultSource} : </strong>
                             </a> 
