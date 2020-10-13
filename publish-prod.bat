@@ -1,0 +1,1 @@
+scp -r * root@dev.moradev.dev:/var/www/html/dev.moradev.dev/newsCore/
