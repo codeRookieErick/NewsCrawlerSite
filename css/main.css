@@ -1,4 +1,28 @@
-.console-panel {
-  height: 200px;
-  overflow-y: scroll;
+:root {
+  --main-background: #07f;
+  --main-color: white;
+  --main-gray: #eee;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  padding: 0.3em 1em;
+}
+
+nav {
+  padding: 1em;
+  background: var(--main-background);
+}
+
+nav a {
+  background: var(--main-background);
+  color: var(--main-color);
+  padding: 1em;
+}
+
+nav a:hover {
+  color: var(--main-gray);
 }

@@ -1,5 +1,10 @@
 <header>
-    Site header
+    <?PHP
+        $url = $_SERVER['SCRIPT_NAME'] == '/index.php' ? "#" : "index.php";
+    ?>
+    <h3>
+       <a href="<?=$url?>"> News <span>Core<span> </a>
+    </h3>
 </header>
 <nav id="siteNav">
 </nav>

@@ -1,23 +1,28 @@
 <?PHP
     $id = uniqid();
 ?>
-<div id="search">
-    <div class="col-12">
-        <input 
-            type="text" 
-            id="searchText<?=$id?>" 
-            name="searchText<?=$id?>"
-        />
-        <button
-            id="searchButton<?=$id?>" 
+<div class="card container p-3" id="search<?=$id?>">
+    <div class="row">
+        <div class="offset-6 col-4">
+            <input 
+                class="w-100"
+                type="text" 
+                id="searchText<?=$id?>" 
+                name="searchText<?=$id?>"
+            />
+        </div>
+        <div class="col-2">
+            <button
+                id="searchButton<?=$id?>" 
+            >
+                Buscar
+            </button>
+        </div>
+        <div
+            id="searchResults<?=$id?>"
+            class="col-12"
         >
-            Buscar
-        </button>
-    </div>
-    <div
-        id="searchResults<?=$id?>"
-        class="col-12"
-    >
+        </div>
     </div>
 </div>
 

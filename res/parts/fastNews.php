@@ -1,7 +1,31 @@
-<div id="fast-news">
-    <h4>
-    <a id="fast-news-title" href="#">Noticias:</a>
-    </h4>
+<?PHP
+
+?>
+<div class="container card">
+    <div class="row">
+            <div class="col-2">
+                <a 
+                    class="btn btn-danger w-100 h-100"
+                    href="#" 
+                    id="fastNewsSource<?=$id?>">
+                    Fuente
+                </a>
+            </div>
+            <div class="col-8 text-center" id="fastNews<?=$id?>">
+                <h5>
+                    <a id="fastNewsTitle<?=$id?>" href="#">Noticias:</a>
+                </h5>
+            </div>
+            
+            <div class="col-2">
+                <label
+                    class="btn btn-info w-100 h-100"
+                    href="#" 
+                    id="fastNewsElapsed<?=$id?>">
+                    Fuente
+                </label>
+            </div>
+    </div>
 </div>
 
 <script>
@@ -29,15 +53,18 @@
         allNews(6, setFastNews);
     };
     let setCurrentNews = (data) => {
-        $("#fast-news").fadeOut(()=>{
-            let elapsed = `[consultado hace ${getTimeElapsed(data["epoch_time"])}]`;
-            let alertInfo = `${data["source"]}: ${data["title"]} ${elapsed}`;
+        $("#fastNews<?=$id?>").fadeOut(()=>{
+            let elapsed = getTimeElapsed(data["epoch_time"]);
+            let alertInfo = `${data["title"]} ${elapsed}`;
             let id = data["id"] || "";
-            $("#fast-news-title").text(alertInfo);
-            $("#fast-news-title").attr("href", `read.php?id=${id}`);
-            $("#fast-news-title").attr("target", `_blank`);
-            $("#fast-news").fadeIn();
+            $("#fastNewsElapsed<?=$id?>").text(elapsed);
+            $("#fastNewsTitle<?=$id?>").text(data["title"]);
+            $("#fastNewsTitle<?=$id?>").attr("href", `read.php?id=${id}`);
+            $("#fastNewsTitle<?=$id?>").attr("target", `_blank`);
+            $("#fastNews<?=$id?>").fadeIn();
         });
+
+        $("#fastNewsSource<?=$id?>").text(data["source"]);
 
     };    
     let setFastNews = (data) => {
