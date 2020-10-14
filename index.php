@@ -10,5 +10,6 @@
     <?PHP require("./res/parts/header.php");?>
     <?PHP require("./res/parts/search.php");?>
     <?PHP require("./res/parts/fastNews.php");?>
+    <?PHP require("./res/parts/categoriesBrief.php");?>
 </body>
 </html>

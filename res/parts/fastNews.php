@@ -68,7 +68,7 @@
 
     };    
     let setFastNews = (data) => {
-        console.log(data);
+        //console.log(data);
         let index = 0;
         let i = 0;
         let swapFastNews = () =>{

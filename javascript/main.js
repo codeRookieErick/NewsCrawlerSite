@@ -29,4 +29,20 @@ let getNewsByToken = (token, callback) => {
     url: `${apiHost}/news/token/${token}`,
     success: callback,
   });
-}
+};
+
+let findNews = (parameters, callback) => {
+  callback = callback || ((data) => console.log(data));
+  let args = Object
+    .keys(parameters)
+    .map(k => `${k}=${parameters[k]}`);
+  let url = `${apiHost}/news/find/`;
+  for(let i = 0; i < args.length; i++){
+    url += i == 0? "?":"&";
+    url += args[i];
+  }
+  $.ajax({
+    url: url,
+    success: callback,
+  });
+};
