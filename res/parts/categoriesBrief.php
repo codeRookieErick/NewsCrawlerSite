@@ -5,11 +5,12 @@
 <script>
     $(document).ready(()=>{
         allCategories((data)=>{
+            let colMdSize = getColMdSize(data.length);
             $("#<?=$container?>").empty();
             data.forEach(categoryData => {
                 let category = categoryData['category'];
                 let count = categoryData['count'];
-                let currentContainer = $('<div class="card col-12 col-md-6"></div>');
+                let currentContainer = $(`<div class="card col-12 ${colMdSize}"></div>`);
                 let containerBody = '<div class="alert alert-success">'+
                 '<strong> <h4>' + category + '</h4> </strong>'+
                 ' [' + count + ' artículos]'+

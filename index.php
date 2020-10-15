@@ -11,5 +11,6 @@
     <?PHP require("./res/parts/search.php");?>
     <?PHP require("./res/parts/fastNews.php");?>
     <?PHP require("./res/parts/categoriesBrief.php");?>
+    <?PHP require("./res/parts/sourcesBrief.php");?>
 </body>
 </html>

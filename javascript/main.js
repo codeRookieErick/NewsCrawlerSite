@@ -1,5 +1,10 @@
 let apiHost = "https://dev.moradev.dev/newsApi";
 
+let getColMdSize = (count) => {
+  count = Math.min(4, Math.max(1, count));
+  return `col-md-${12/count}`;
+};
+
 let allNews = (max, callback) => {
   callback = callback || ((data) => console.log(data));
   $.ajax({
@@ -12,6 +17,14 @@ let allCategories = (callback) => {
   callback = callback || ((data) => console.log(data));
   $.ajax({
     url: `${apiHost}/categories`,
+    success: callback,
+  });
+};
+
+let allSources = (callback) => {
+  callback = callback || ((data) => console.log(data));
+  $.ajax({
+    url: `${apiHost}/sources`,
     success: callback,
   });
 };
@@ -46,3 +59,4 @@ let findNews = (parameters, callback) => {
     success: callback,
   });
 };
+
