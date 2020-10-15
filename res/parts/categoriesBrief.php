@@ -5,32 +5,51 @@
 <script>
     $(document).ready(()=>{
         allCategories((data)=>{
-            let colMdSize = getColMdSize(data.length);
             $("#<?=$container?>").empty();
             data.forEach(categoryData => {
                 let category = categoryData['category'];
                 let count = categoryData['count'];
-                let currentContainer = $(`<div class="card col-12 ${colMdSize}"></div>`);
-                let containerBody = '<div class="alert alert-success">'+
-                '<strong> <h4>' + category + '</h4> </strong>'+
-                ' [' + count + ' artículos]'+
-                '<a href="categories.php?category='+ category +'">+Mas</a>'+
-                '</div>';
-                let categoriesToggler = $(containerBody);
-                let categoriesNews = $('<div></div>');
-                currentContainer.append(categoriesToggler);
-                currentContainer.append(categoriesNews);
-                categoriesNews.slideUp();
-                categoriesToggler.on("click", ()=>categoriesNews.slideToggle());
+                let currentContainer = $(
+                    `<div class="card">
+                        <div class="card-header">
+                            <strong><h5>${category}</h5></strong> [${count} art&iacute;culos]
+                            <a href="categories.php?category=${category}">+Mas</a>
+                        </div>
+                        <div class="card-body">
+                        </div>
+                    </div>`
+                );
+                let header = currentContainer.find(".card-header");
+                let body = currentContainer.find(".card-body");
+                body.slideUp();
+                header.on("click", ()=>body.slideToggle());
                 findNews({"category":category}, (news)=>{
+                    let index = 0;
                     news.forEach((newsData) =>{
-                        categoriesNews.append($('<div><strong>'+
-                        newsData["source"] +
-                        '</strong> <a href="' +
-                        newsData["url"] + 
-                        '">'+ newsData["title"] + "</a>" +
-                        '</div>'));
+                        let source = newsData["source"];
+                        let id = newsData["id"];
+                        let title = newsData["title"];
+                        let newsBody = $(`
+                            <div class="alert alert-info">
+                                <strong>${source}</strong><br/>
+                                <a target="_blank" href="read.php?id=${id}">
+                                    ${title}
+                                </a>
+                            </div>
+                        `);
+                        if(++index > 3){
+                            newsBody.addClass("d-none");
+                        }
+                        body.append(newsBody);
                     });
+                    if(index > 3){
+                        let showAll = $('<button class="btn btn-info col-12 align-center">Mostrar todo</button>');
+                        showAll.on("click", ()=>{
+                            body.find(".alert").removeClass("d-none");
+                            showAll.remove();
+                        });
+                        body.append(showAll);
+                    }
                 });
                 $("#<?=$container?>").append(currentContainer);
             });
@@ -38,9 +57,8 @@
     });
 </script>
 <div class="container card">
-    <div class="row">
-        <div class="col-12"><h4>Categorias</h4></div>
-        <div id="<?=$container?>" class="col-12">
+        <div class="card-header"><h4>Categor&iacute;as</h4></div>
+        <div id="<?=$container?>" class="card-body card-deck">
         
         </div>
     </div>

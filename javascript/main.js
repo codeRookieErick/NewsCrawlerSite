@@ -1,4 +1,5 @@
 let apiHost = "https://dev.moradev.dev/newsApi";
+//let apiHost = "192.168.1.100:2021";
 
 let getColMdSize = (count) => {
   count = Math.min(4, Math.max(1, count));

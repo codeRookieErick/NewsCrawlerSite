@@ -6,6 +6,7 @@
     $(document).ready(()=>{
         allSources((data)=>{
             $("#<?=$container?>").empty();
+            let index = 0;
             data.forEach(sourceData => {
                 let source = sourceData['source'];
                 let count = sourceData['count'];

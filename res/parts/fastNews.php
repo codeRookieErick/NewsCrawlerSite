@@ -3,7 +3,7 @@
 ?>
 <div class="container card">
     <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-md-3">
                 <a 
                     class="btn btn-success w-100 h-100"
                     href="#" 
@@ -11,13 +11,13 @@
                     Fuente
                 </a>
             </div>
-            <div class="col-12 text-center" id="fastNews<?=$id?>">
+            <div class="col-12 col-md-6 text-center" id="fastNews<?=$id?>">
                 <h5>
                     <a id="fastNewsTitle<?=$id?>" href="#">Noticias:</a>
                 </h5>
             </div>
             
-            <div class="col-12">
+            <div class="col-12 col-md-3">
                 <label
                     class="btn btn-success w-100 h-100"
                     href="#" 
